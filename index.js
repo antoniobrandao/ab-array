@@ -11,45 +11,6 @@ Array.prototype.move = function (old_index, new_index) {
     return this; // for testing purposes
 };
 
-Array.prototype.move = function(old_index, new_index) {
-    if (new_index >= this.length) {
-        var k = new_index - this.length;
-        while ((k--) + 1) {
-            this.push(undefined);
-        }
-    }
-    this.splice(new_index, 0, this.splice(old_index, 1)[0]);
-    // return this; // for testing purposes
-};
-
-Array.prototype.moveUp = function(value, by) {
-    var index = this.indexOf(value),     
-        newPos = index - (by || 1);
-    
-    if(index === -1) 
-        throw new Error("Element not found in array");
-    
-    if(newPos < 0) 
-        newPos = 0;
-        
-    this.splice(index,1);
-    this.splice(newPos,0,value);
-};
-
-Array.prototype.moveDown = function(value, by) {
-    var index = this.indexOf(value),     
-        newPos = index + (by || 1);
-    
-    if(index === -1) 
-        throw new Error("Element not found in array");
-    
-    if(newPos >= this.length) 
-        newPos = this.length;
-    
-    this.splice(index, 1);
-    this.splice(newPos,0,value);
-};
-
 if(!Array.prototype.indexOf) {
     Array.prototype.indexOf = function(what, i) {
         i = i || 0;
