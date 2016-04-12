@@ -33,3 +33,10 @@ Array.prototype.removeElement = function() {
     }
     return this;
 };
+
+
+Array.prototype.containsAny = function(arr) {
+    return this.some(function (v) {
+        return arr.indexOf(v) >= 0
+    })
+}
